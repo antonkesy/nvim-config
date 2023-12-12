@@ -1,8 +1,23 @@
 # nvim-config
 
+Personal NeoVim config for daily usage.
+
+## Disclaimer
+
+This configuration is tailored exclusively for my personal use, and its public availability is solely for convenient sharing.
+
+Please note that this config is subject to frequent changes, may lack organization, and might not align perfectly with your requirements.
+
 ## Installation
 
-This config is currently based on LunarVim
+LunarVim is currently used as backend
 
 1. [Install LunaVim](https://www.lunarvim.org/docs/installation)
 2. [Move this config to lvim config path](https://www.lunarvim.org/docs/configuration)
+
+## Usage
+
+| Action    | Key(s)             |
+| --------- | ------------------ |
+| Leader    | \<SPACE\>          |
+| WhichKeys | \<LEADER\> + s + k |
