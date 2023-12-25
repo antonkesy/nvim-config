@@ -14,6 +14,10 @@ LunarVim is currently used as backend
 
 1. [Install LunaVim](https://www.lunarvim.org/docs/installation)
 2. [Move this config to lvim config path](https://www.lunarvim.org/docs/configuration)
+3. Start `lvim`
+4. Optinal:
+   - `:Copilot auth`
+   - `:Mason` and install all -> `:LvimCacheReset`
 
 ## Usage
 
