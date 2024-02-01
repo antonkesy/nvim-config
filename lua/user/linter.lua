@@ -23,7 +23,7 @@ linters.setup({
   { name = "jsonlint" },
   { name = "ktlint" },
   { name = "luacheck" },
-  { name = "markdownlint" },
+  -- { name = "markdownlint" },
   -- { name = "misspell" },
   -- { name = "mypy" },
   -- { name = "oxlint" },
