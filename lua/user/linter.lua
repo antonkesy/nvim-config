@@ -54,7 +54,7 @@ linters.setup({
   -- { name = "standardjs" },
   -- { name = "standardrb" },
   -- { name = "stylelint" },
-  { name = "textlint" },
+  -- { name = "textlint" },
   -- { name = "tflint" },
   -- { name = "tfsec" },
   -- { name = "trufflehog" },
