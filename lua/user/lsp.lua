@@ -12,13 +12,15 @@ lvim.builtin.mason.on_config_done = function()
       "jsonlint",
       "shellcheck",
       "lua_ls",
-      "rust_analyzer"
+      "rust_analyzer",
+      "clangd"
     },
   }
 end
 
 
 
+-- TODO: overwriting these deletes lvim default config
 require("mason-lspconfig").setup_handlers({
   ["pyright"] = function()
     local lspconfig = require("lspconfig")
@@ -29,5 +31,9 @@ require("mason-lspconfig").setup_handlers({
   ["cmake"] = function()
     local lspconfig = require("lspconfig")
     lspconfig.cmake.setup({})
+  end,
+  ["clangd"] = function()
+    local lspconfig = require("lspconfig")
+    lspconfig.clangd.setup({})
   end,
 })
