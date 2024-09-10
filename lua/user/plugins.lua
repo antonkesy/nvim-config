@@ -12,7 +12,6 @@ local plugin_configs = {
   require("user.plugins.noice"),
   require("user.plugins.nvim-builtin-improvments"),
   require("user.plugins.outlines"),
-  require("user.plugins.overseer"),
   require("user.plugins.python"),
   require("user.plugins.rainbow-csv"),
   require("user.plugins.spectre"),
