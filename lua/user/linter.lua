@@ -12,7 +12,7 @@ linters.setup({
   { name = "commitlint" },
   -- { name = "cspell" },
   -- { name = "eslint_d" },
-  { name = "flake8" },
+  -- { name = "flake8" },
   -- { name = "gdtoolkit" },
   -- { name = "gitleaks" },
   { name = "gitlint" },
