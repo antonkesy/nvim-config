@@ -40,3 +40,6 @@ lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope buffers<CR>", "Find fi
 
 -- Add keybinding for :MakeitOpen
 lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }
+
+-- nvim-tree
+lvim.builtin.nvimtree.setup.view.number = true
