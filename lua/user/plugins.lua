@@ -16,6 +16,7 @@ local plugin_configs = {
   require("user.plugins.outlines"),
   require("user.plugins.python"),
   require("user.plugins.rainbow-csv"),
+  require("user.plugins.rainbow-delimiters"),
   require("user.plugins.spectre"),
   require("user.plugins.themes"),
   require("user.plugins.tmux"),
