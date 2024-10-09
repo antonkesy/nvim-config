@@ -1,4 +1,4 @@
-return {
+return { -- TODO: issue with lualine -> buffer selection get overwritten
   {
     "folke/noice.nvim",
     event = "VeryLazy",
