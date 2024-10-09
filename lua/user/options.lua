@@ -36,3 +36,7 @@ vim.cmd([[autocmd FocusGained * silent! checktime]])
 
 -- Fuzzy find in current buffer
 lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Fuzzy find in current buffer" }
+
+
+-- Add keybinding for :MakeitOpen
+lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }

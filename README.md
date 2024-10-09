@@ -26,3 +26,4 @@ LunarVim is currently used as backend
 | Leader            | \<SPACE\>          |
 | WhichKeys         | \<LEADER\> + s + k |
 | FuzzySearchBuffer | \<LEADER\> + s + T |
+| Make Shortcut     | \<LEADER\> + m     |
