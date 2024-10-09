@@ -11,6 +11,7 @@ local plugin_configs = {
   require("user.plugins.neo-tree"),
   require("user.plugins.neoscroll"),
   require("user.plugins.noice"),
+  require("user.plugins.numb"),
   require("user.plugins.nvim-builtin-improvments"),
   require("user.plugins.outlines"),
   require("user.plugins.python"),
