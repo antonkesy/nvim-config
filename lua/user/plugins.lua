@@ -22,6 +22,7 @@ local plugin_configs = {
   require("user.plugins.todo-comments"),
   require("user.plugins.treesitter-context"),
   require("user.plugins.trouble"),
+  require("user.plugins.window-picker"),
 }
 
 local plugins = {}

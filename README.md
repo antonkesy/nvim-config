@@ -29,3 +29,4 @@ LunarVim is currently used as backend
 | Make Shortcut     | \<LEADER\> + m     |
 | Leap Forward      | s                  |
 | Leap Backward     | S                  |
+| Select Window     | \<LEADER\> + w     |
