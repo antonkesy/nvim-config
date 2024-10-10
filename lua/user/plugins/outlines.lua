@@ -5,7 +5,7 @@ return {
       require("symbols-outline").setup(
         {
           position = 'left',
-          width = 25,
+          width = 15,
           autofold_depth = 5,
           -- workaround for symbols not loading: https://github.com/simrat39/symbols-outline.nvim/issues/230
           symbols = {

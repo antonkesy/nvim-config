@@ -8,7 +8,7 @@ lvim.builtin.mason.on_config_done = function()
       "buildifier",
       "checkstyle",
       "cmake",
-      "flake8",
+      -- "flake8",
       "jsonlint",
       "shellcheck",
       "lua_ls",
@@ -26,6 +26,10 @@ require("mason-lspconfig").setup_handlers({
     local lspconfig = require("lspconfig")
     lspconfig.pyright.setup({
       autoImportCompletion = true,
+      typeCheckingMode = "strict",
+      autoSearchPaths = true,
+      diagnosticMode = "openFilesOnly",
+      useLibraryCodeForTypes = true,
     })
   end,
   ["cmake"] = function()

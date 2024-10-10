@@ -33,3 +33,13 @@ vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { no
 -- Trigger `autoread` when files change on disk
 vim.cmd([[set autoread]])
 vim.cmd([[autocmd FocusGained * silent! checktime]])
+
+-- Fuzzy find in current buffer
+lvim.builtin.which_key.mappings["sT"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Fuzzy find in current buffer" }
+lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope buffers<CR>", "Find files in open buffers" }
+
+-- Add keybinding for :MakeitOpen
+lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }
+
+-- nvim-tree
+lvim.builtin.nvimtree.setup.view.number = true
