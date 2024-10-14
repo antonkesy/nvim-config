@@ -43,3 +43,6 @@ lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }
 
 -- nvim-tree
 lvim.builtin.nvimtree.setup.view.number = true
+
+-- remove LEADER + w
+lvim.builtin.which_key.mappings["w"] = nil
