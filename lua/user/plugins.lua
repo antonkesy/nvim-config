@@ -2,6 +2,7 @@ local plugin_configs = {
   require("user.plugins.alpha"),
   require("user.plugins.auto-session"),
   require("user.plugins.better-escape"),
+  require("user.plugins.better-whitespace"),
   require("user.plugins.copilot"),
   require("user.plugins.edgy"),
   require("user.plugins.goto-preview"),
