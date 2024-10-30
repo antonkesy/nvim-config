@@ -44,5 +44,16 @@ lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }
 -- nvim-tree
 lvim.builtin.nvimtree.setup.view.number = true
 
--- remove LEADER + w
-lvim.builtin.which_key.mappings["w"] = nil
+
+-- window picker workaround to avoid conflict with save file
+lvim.builtin.which_key.mappings["w"] = {
+  function()
+    local picked_window_id = require('window-picker').pick_window({
+      hint = 'floating-big-letter'
+    })
+    if picked_window_id then
+      vim.api.nvim_set_current_win(picked_window_id)
+    end
+  end,
+  "Pick a window"
+}
