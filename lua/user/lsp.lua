@@ -31,13 +31,5 @@ require("mason-lspconfig").setup_handlers({
       diagnosticMode = "openFilesOnly",
       useLibraryCodeForTypes = true,
     })
-  end,
-  ["cmake"] = function()
-    local lspconfig = require("lspconfig")
-    lspconfig.cmake.setup({})
-  end,
-  ["clangd"] = function()
-    local lspconfig = require("lspconfig")
-    lspconfig.clangd.setup({})
-  end,
+  end
 })
