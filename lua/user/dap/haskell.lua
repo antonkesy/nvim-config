@@ -1,5 +1,13 @@
 local dap = require('dap')
 
+-- Working haskell setup:
+-- - ghcup install ghc 9.2.4 --set
+-- - ghcup install hls 1.8.0.0 --set
+-- - ghcup install cabal recommended --set
+-- - ghcup install stack recommended --set
+-- inside stack.yaml:
+-- - snapshot: ghc-9.2.4
+
 -- https://stackoverflow.com/questions/55878447/how-to-i-change-the-default-ghc-compiler-version-on-stack
 -- add "stack config set resolver ghc-8.0.2" if HLS not working
 
