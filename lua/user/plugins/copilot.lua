@@ -31,13 +31,29 @@ return {
       })
       lvim.builtin.which_key.mappings["a"] = {
         name = "AI",
-        e = { "<cmd>::Copilot enable<cr>", "Enable Copilot" },
-        d = { "<cmd>::Copilot disable<cr>", "Disable Copilot" },
+        e = { "<cmd>:Copilot enable<cr>", "Enable Copilot" },
+        d = { "<cmd>:Copilot disable<cr>", "Disable Copilot" },
         s = { "<cmd>:Copilot status<CR>", "Copilot status" },
         p = { "<cmd>:Copilot panel<CR>", "Copilot panel" },
       }
     end,
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+    },
+    config = function(_, opts)
+      require("CopilotChat").setup(opts)
+      lvim.builtin.which_key.mappings["a"].o = {
+        "<cmd>:CopilotChatOpen<cr>", "Open CopilotChat",
+      }
+    end,
+  }
   -- {
   --   "zbirenbaum/copilot-cmp",
   --   config = function()
