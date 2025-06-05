@@ -8,7 +8,7 @@ return {
         perfomance_mode = true,
       })
 
-      neoscroll = require('neoscroll')
+      local neoscroll = require('neoscroll')
       local keymap = {
         ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 50 }) end,
         ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 50 }) end,

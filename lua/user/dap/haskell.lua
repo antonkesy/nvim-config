@@ -11,7 +11,7 @@ local dap = require('dap')
 -- https://stackoverflow.com/questions/55878447/how-to-i-change-the-default-ghc-compiler-version-on-stack
 -- add "stack config set resolver ghc-8.0.2" if HLS not working
 
-dap.adapters.haskell = function(callback, config)
+dap.adapters.haskell = function(callback, _)
   local port = 4711
   local handle
   handle, _ = vim.loop.spawn('haskell-debug-adapter', {
