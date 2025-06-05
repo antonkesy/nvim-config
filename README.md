@@ -1,6 +1,6 @@
 # nvim-config
 
-Personal NeoVim config for daily usage.
+Personal LunarVim config for daily usage.
 
 ## Disclaimer
 
@@ -10,12 +10,10 @@ Please note that this config is subject to frequent changes, may lack organizati
 
 ## Installation
 
-LunarVim is currently used as backend
-
-1. [Install LunaVim](https://www.lunarvim.org/docs/installation)
+1. [Install LunarVim](https://www.lunarvim.org/docs/installation)
 2. [Move this config to lvim config path](https://www.lunarvim.org/docs/configuration)
 3. Start `lvim`
-4. Optinal:
+4. Optional:
    - `:Copilot auth`
    - `:Mason` and install all -> `:LvimCacheReset`
 
