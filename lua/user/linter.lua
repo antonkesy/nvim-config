@@ -45,7 +45,8 @@ linters.setup({
   -- { name = "semgrep" },
   {
     name = "shellcheck",
-    args = { "--severity", "warning" },
+    filetypes = { "sh", "zsh", "bash" },
+    args = { "--severity", "warning", "--shell", "bash" },
   },
   -- { name = "shellharden" },
   { name = "solhint" },
