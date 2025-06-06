@@ -15,6 +15,7 @@ local plugin_configs = {
   require("user.plugins.numb"),
   require("user.plugins.nvim-builtin-improvments"),
   require("user.plugins.outlines"),
+  require("user.plugins.pre-commit"),
   require("user.plugins.python"),
   require("user.plugins.rainbow-csv"),
   require("user.plugins.rainbow-delimiters"),
