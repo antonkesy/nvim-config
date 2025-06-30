@@ -25,6 +25,9 @@ lvim.builtin.terminal.active = true
 lvim.builtin.which_key.mappings["v"] = {
   name = "Visual",
   b = { "<cmd>:set wrap!<cr>", "Toggle text wrap" },
+  l = {
+    "<cmd>:lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<CR>",
+    "Toggle Linter virtual text" },
 }
 
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
