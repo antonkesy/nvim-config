@@ -1,6 +1,14 @@
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+
+-- line numbering
+function _G.ToggleRelativeNumber()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end
+
 vim.opt.relativenumber = true
+lvim.builtin.which_key.mappings["vn"] =
+{ "<cmd>lua ToggleRelativeNumber()<CR>", "Switch between relative/regular line numbering" }
 
 -- disable comment jump to next line
 -- https://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
@@ -47,7 +55,6 @@ lvim.builtin.which_key.mappings["m"] = { ":MakeitOpen<CR>", "MakeitOpen" }
 
 -- nvim-tree
 lvim.builtin.nvimtree.setup.view.number = true
-
 
 -- window picker workaround to avoid conflict with save file
 lvim.builtin.which_key.mappings["w"] = {
