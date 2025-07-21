@@ -8,7 +8,7 @@ linters.setup({
   { name = "bandit" },     -- Python security issues
   { name = "buf" },        -- Protobuf
   { name = "buildifier" }, -- Bazel
-  { name = "checkmake" },  -- Make
+  -- { name = "checkmake" },  -- Make
   -- TODO: not in Mason { name = "checkpatch" },    -- Git Patch
   { name = "checkstyle" }, -- Java
   { name = "chktex" },     -- TeX
