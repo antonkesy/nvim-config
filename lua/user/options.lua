@@ -1,3 +1,5 @@
+require("user.gitignore")
+
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 lvim.builtin.autopairs.active = false -- stop auto-closing brackets, ...
