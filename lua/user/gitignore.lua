@@ -1,10 +1,18 @@
 -- Mark buffer which are gitignored
 local function is_gitignored()
   local path = vim.api.nvim_buf_get_name(0)
-  if path == "" then return false end
+  if path == "" then
+    return false
+  end
+
+  -- Check if the file is inside a git repo
+  vim.fn.systemlist({ "git", "rev-parse", "--show-toplevel" })
+  if vim.v.shell_error ~= 0 then
+    return false
+  end
 
   local result = vim.fn.systemlist({ "git", "check-ignore", path })
-  return #result > 0
+  return vim.v.shell_error == 0 and #result > 0
 end
 
 local function adjust_color(hex, factor)
