@@ -8,7 +8,6 @@ local plugin_configs = {
   require("user.plugins.goto-preview"),
   require("user.plugins.leap"),
   require("user.plugins.makeit"),
-  require("user.plugins.minimap"),
   require("user.plugins.neo-tree"),
   require("user.plugins.neoscroll"),
   require("user.plugins.noice"),
