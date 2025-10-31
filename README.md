@@ -17,6 +17,29 @@ Please note that this config is subject to frequent changes, may lack organizati
    - `:Copilot auth`
    - `:Mason` and install all -> `:LvimCacheReset`
 
+## Docker Setup
+
+Use this command to run this Neovim configuration anywhere on your system inside a Docker container:
+
+> **Note**: Make sure you have Docker and the image installed (`make docker-build`).
+
+```bash
+docker run --rm -it \
+  -v "$PWD":"$PWD" \
+  -w "$PWD" \
+  akvim lvim
+```
+
+> **Tip**: You can create an alias in your shell configuration file (e.g., `.bashrc`, `.zshrc`) for easier access:
+
+```bash
+alias akvim='docker run --rm -it -v "$PWD":"$PWD" -w "$PWD" akvim lvim'
+
+# usage
+akvim <file-to-edit>
+akvim .
+```
+
 ## Usage
 
 | Action             | Key(s)             |
