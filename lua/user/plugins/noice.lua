@@ -1,6 +1,7 @@
 return { -- TODO: issue with lualine -> buffer selection get overwritten
   {
     "folke/noice.nvim",
+    commit = "0427460",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",

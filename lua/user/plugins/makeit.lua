@@ -1,6 +1,7 @@
 return {
   { -- This plugin
     "Zeioth/makeit.nvim",
+    commit="5859c9d",
     cmd = { "MakeitOpen", "MakeitToggleResults", "MakeitRedo" },
     dependencies = { "stevearc/overseer.nvim" },
     opts = {},

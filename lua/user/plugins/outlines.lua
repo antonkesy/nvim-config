@@ -1,6 +1,7 @@
 return {
   {
     "simrat39/symbols-outline.nvim",
+    commit = "564ee65",
     config = function()
       require("symbols-outline").setup(
         {

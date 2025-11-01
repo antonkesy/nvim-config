@@ -2,6 +2,7 @@ return {
   {
     -- TODO: ignore nvim tree + map
     "rmagatti/auto-session",
+    commit = "3b5d894",
     config = function()
       require("auto-session").setup {
         log_level = "error",

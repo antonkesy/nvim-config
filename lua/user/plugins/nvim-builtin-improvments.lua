@@ -1,6 +1,7 @@
 return {
   {
     "kevinhwang91/nvim-bqf",
+    commit = "17680cd",
     event = { "BufRead", "BufNew" },
     config = function()
       require("bqf").setup({
@@ -26,6 +27,7 @@ return {
     end,
   },
   {
-    'andymass/vim-matchup'
+    "andymass/vim-matchup",
+    commit = "347c890",
   },
 }

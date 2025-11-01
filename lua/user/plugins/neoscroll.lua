@@ -1,6 +1,7 @@
 return {
   {
     "karb94/neoscroll.nvim",
+    commit = "f957373",
     config = function()
       require('neoscroll').setup({
         hide_cursor = false,
