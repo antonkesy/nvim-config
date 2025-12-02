@@ -1,6 +1,6 @@
 return {
   {
-    -- TODO: ignore nvim tree + map
+    -- TODO: ignore nvim tree + map -> there is now a build in way
     "rmagatti/auto-session",
     commit = "292492a",
     config = function()
