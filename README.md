@@ -1,6 +1,6 @@
 # nvim-config
 
-Personal LunarVim config for daily usage.
+Personal LazyVim config for daily usage.
 
 ## Disclaimer
 
@@ -10,12 +10,11 @@ Please note that this config is subject to frequent changes, may lack organizati
 
 ## Installation
 
-1. [Install LunarVim](https://www.lunarvim.org/docs/installation)
-2. [Move this config to lvim config path](https://www.lunarvim.org/docs/configuration)
-3. Start `lvim`
+2. [Move this config to nvim config path (`~/.config/nvim`)](https://www.lazyvim.org/installation)
+3. Start `nvim`
 4. Optional:
    - `:Copilot auth`
-   - `:Mason` and install all -> `:LvimCacheReset`
+   - `:Mason`
 
 ## Docker Setup
 
@@ -41,6 +40,8 @@ akvim .
 ```
 
 ## Usage
+
+TODO: update after migration
 
 | Action             | Key(s)             |
 | ------------------ | ------------------ |
