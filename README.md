@@ -41,15 +41,4 @@ akvim .
 
 ## Usage
 
-TODO: update after migration
-
-| Action             | Key(s)             |
-| ------------------ | ------------------ |
-| Leader             | \<SPACE\>          |
-| WhichKeys          | \<LEADER\> + s + k |
-| FuzzySearchBuffer  | \<LEADER\> + s + T |
-| Make Shortcut      | \<LEADER\> + m     |
-| Leap Forward       | s                  |
-| Leap Backward      | S                  |
-| Select Window      | \<LEADER\> + w     |
-| Show documentation | K                  |
+- [Keymaps](https://www.lazyvim.org/keymaps)
