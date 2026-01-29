@@ -4,3 +4,6 @@
 
 -- Show what actually is there, not some special render
 vim.opt.conceallevel = 0
+
+-- Don't autoformat on save
+vim.g.autoformat = false
