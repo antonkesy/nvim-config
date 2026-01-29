@@ -26,13 +26,13 @@ Use this command to run this Neovim configuration anywhere on your system inside
 docker run --rm -it \
   -v "$PWD":"$PWD" \
   -w "$PWD" \
-  akvim lvim
+  akvim nvim
 ```
 
 > **Tip**: You can create an alias in your shell configuration file (e.g., `.bashrc`, `.zshrc`) for easier access:
 
 ```bash
-alias akvim='docker run --rm -it -v "$PWD":"$PWD" -w "$PWD" akvim lvim'
+alias akvim='docker run --rm -it -v "$PWD":"$PWD" -w "$PWD" akvim nvim'
 
 # usage
 akvim <file-to-edit>

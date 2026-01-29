@@ -5,4 +5,4 @@ docker-build:
 	docker build -t akvim .
 
 docker-run:
-	docker run -it akvim lvim
+	docker run -it akvim nvim

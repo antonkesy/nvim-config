@@ -44,12 +44,12 @@ RUN sudo apt-get install -y npm ruby-dev r-base php libapache2-mod-php php-cli p
 
 # Config
 WORKDIR /home/${USERNAME}
-COPY --chown=akvim:akvim . /home/${USERNAME}/.config/lvim
+COPY --chown=akvim:akvim . /home/${USERNAME}/.config/nvim
 
 # Install plugins
-RUN lvim --headless -c "Lazy sync" -c "qa"
+RUN nvim --headless -c "Lazy sync" -c "qa"
 
 # Install all parsers headless (this might take a while)
-RUN lvim --headless \
+RUN nvim --headless \
   -c 'lua for _,lang in ipairs(require("nvim-treesitter.parsers").available_parsers()) do vim.cmd("TSInstallSync " .. lang) end' \
   -c 'qa'
