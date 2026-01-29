@@ -16,7 +16,7 @@ USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
 # build Neovim from source
-RUN git clone --depth 1 --branch v0.10.4 https://github.com/neovim/neovim
+RUN git clone --depth 1 --branch v0.11.6 https://github.com/neovim/neovim
 WORKDIR /home/${USERNAME}/neovim
 RUN sudo apt-get install -y ninja-build gettext cmake unzip curl cmake
 RUN make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
