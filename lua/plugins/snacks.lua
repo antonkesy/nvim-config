@@ -3,10 +3,6 @@ return {
   opts = {
     dashboard = {
       preset = {
-        pick = function(cmd, opts)
-          -- luacheck: ignore
-          return LazyVim.pick(cmd, opts)()
-        end,
         header = "¯\\_(ツ)_/¯",
         -- stylua: ignore
         ---@type snacks.dashboard.Item[]
