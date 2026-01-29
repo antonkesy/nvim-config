@@ -7,10 +7,22 @@ return {
           -- luacheck: ignore
           return LazyVim.pick(cmd, opts)()
         end,
-        header = io.open("lua/plugins/dashboard.txt", "r"):read("*all"),
+        header = "¯\\_(ツ)_/¯",
         -- stylua: ignore
         ---@type snacks.dashboard.Item[]
         keys = { },
+      },
+    },
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+        },
+        files = {
+          hidden = true, -- show dotfiles in fuzzy finder
+          ignored = true, -- optional: show gitignored files
+        },
       },
     },
   },
