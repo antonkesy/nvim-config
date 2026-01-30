@@ -16,7 +16,7 @@ return {
           ignored = true,
         },
         files = {
-          hidden = true, -- show dotfiles in fuzzy finder
+          hidden = false, -- don't show dotfiles in fuzzy finder
           ignored = true, -- optional: show gitignored files
         },
       },
