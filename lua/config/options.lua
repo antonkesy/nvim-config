@@ -7,3 +7,6 @@ vim.opt.conceallevel = 0
 
 -- Don't autoformat on save
 vim.g.autoformat = false
+
+-- Don't jump to repo root if opened in subdir
+vim.g.root_spec = { "cwd" }
