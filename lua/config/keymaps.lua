@@ -17,3 +17,6 @@ if vim.fn.executable("lazygit") == 1 then
     })
   end, { desc = "Lazygit" })
 end
+
+-- qucik 'no highlight'
+vim.keymap.set("n", "<leader>h", "<cmd>noh<CR>", { desc = "Clear search highlight" })
