@@ -12,8 +12,8 @@ return {
     picker = {
       sources = {
         explorer = {
-          hidden = false,
-          ignored = false,
+          hidden = true,
+          ignored = true,
         },
         files = {
           hidden = false, -- don't show dotfiles in fuzzy finder
