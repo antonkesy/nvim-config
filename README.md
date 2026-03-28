@@ -23,8 +23,8 @@ Please note that this config is subject to frequent changes, may lack organizati
 Run this in a ROS 2 Humble container terminal to clone this config into `~/.config/nvim` and install all dependencies/plugins:
 
 ```bash
-apt-get update && apt-get install -y curl && \
-bash <(curl -fsSL https://raw.githubusercontent.com/antonkesy/nvim-config/main/scripts/install_ros2_humble_nvim_deps.sh)
+sudo apt-get update && sudo  apt-get install -y curl && \
+bash <(curl -fsSL https://raw.githubusercontent.com/antonkesy/nvim-config/main/scripts/autoinstall-ros2-humble.sh)
 ```
 
 ### Regular Docker Image
