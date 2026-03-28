@@ -18,6 +18,17 @@ Please note that this config is subject to frequent changes, may lack organizati
 
 ## Docker Setup
 
+### ROS 2 Humble Container Bootstrap
+
+Run this in a ROS 2 Humble container terminal to clone this config into `~/.config/nvim` and install all dependencies/plugins:
+
+```bash
+apt-get update && apt-get install -y curl && \
+bash <(curl -fsSL https://raw.githubusercontent.com/antonkesy/nvim-config/main/scripts/install_ros2_humble_nvim_deps.sh)
+```
+
+### Regular Docker Image
+
 Use this command to run this Neovim configuration anywhere on your system inside a Docker container:
 
 > **Note**: Make sure you have Docker and the image installed (`make docker-build`).

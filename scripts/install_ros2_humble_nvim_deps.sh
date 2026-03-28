@@ -6,12 +6,18 @@ set -euo pipefail
 #
 # Optional env vars:
 #   NVIM_VERSION=v0.11.6           # Neovim tag to build from source
-#   INSTALL_PLUGINS=0              # Set 1 to run Lazy sync + treesitter installs
+#   INSTALL_PLUGINS=1              # Set 1 to run Lazy sync + treesitter installs
 #   NVIM_CONFIG_DIR=~/.config/nvim # Path to this nvim config
+#   NVIM_CONFIG_REPO=<repo-url>    # Repo to clone when config dir is missing
+#   NVIM_CONFIG_REF=<git-ref>      # Optional branch/tag/commit to checkout
+#   UPDATE_EXISTING_CONFIG=1       # Set 0 to never update an existing clone
 
 NVIM_VERSION="${NVIM_VERSION:-v0.11.6}"
-INSTALL_PLUGINS="${INSTALL_PLUGINS:-0}"
+INSTALL_PLUGINS="${INSTALL_PLUGINS:-1}"
 NVIM_CONFIG_DIR="${NVIM_CONFIG_DIR:-$HOME/.config/nvim}"
+NVIM_CONFIG_REPO="${NVIM_CONFIG_REPO:-https://github.com/antonkesy/nvim-config.git}"
+NVIM_CONFIG_REF="${NVIM_CONFIG_REF:-}"
+UPDATE_EXISTING_CONFIG="${UPDATE_EXISTING_CONFIG:-1}"
 
 if [[ "${EUID}" -eq 0 ]]; then
   SUDO=""
@@ -26,6 +32,41 @@ fi
 
 log() {
   echo "[nvim-deps] $*"
+}
+
+bootstrap_nvim_config() {
+  mkdir -p "$(dirname "${NVIM_CONFIG_DIR}")"
+
+  if [[ -d "${NVIM_CONFIG_DIR}" ]]; then
+    if [[ "${UPDATE_EXISTING_CONFIG}" != "1" ]]; then
+      log "Config directory already exists, skipping update: ${NVIM_CONFIG_DIR}"
+      return
+    fi
+
+    if [[ -d "${NVIM_CONFIG_DIR}/.git" ]]; then
+      log "Updating existing config clone in ${NVIM_CONFIG_DIR}"
+      git -C "${NVIM_CONFIG_DIR}" fetch --all --tags --prune
+      if [[ -n "${NVIM_CONFIG_REF}" ]]; then
+        git -C "${NVIM_CONFIG_DIR}" checkout "${NVIM_CONFIG_REF}"
+        git -C "${NVIM_CONFIG_DIR}" pull --ff-only origin "${NVIM_CONFIG_REF}"
+      else
+        CURRENT_BRANCH="$(git -C "${NVIM_CONFIG_DIR}" symbolic-ref --short HEAD)"
+        git -C "${NVIM_CONFIG_DIR}" pull --ff-only origin "${CURRENT_BRANCH}"
+      fi
+      return
+    fi
+
+    echo "Error: NVIM_CONFIG_DIR exists but is not a git repo: ${NVIM_CONFIG_DIR}" >&2
+    echo "Set NVIM_CONFIG_DIR to an empty path or remove the directory and re-run." >&2
+    exit 1
+  fi
+
+  log "Cloning Neovim config into ${NVIM_CONFIG_DIR}"
+  if [[ -n "${NVIM_CONFIG_REF}" ]]; then
+    git clone --depth 1 --branch "${NVIM_CONFIG_REF}" "${NVIM_CONFIG_REPO}" "${NVIM_CONFIG_DIR}"
+  else
+    git clone --depth 1 "${NVIM_CONFIG_REPO}" "${NVIM_CONFIG_DIR}"
+  fi
 }
 
 apt_install() {
@@ -54,6 +95,9 @@ apt_install \
   sudo \
   tzdata \
   software-properties-common
+
+log "Bootstrapping Neovim config"
+bootstrap_nvim_config
 
 log "Configuring locale"
 ${SUDO} locale-gen en_US.UTF-8 || true
