@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-NVIM_VERSION="${NVIM_VERSION:-v0.11.6}"
-INSTALL_PLUGINS="${INSTALL_PLUGINS:-1}"
-NVIM_CONFIG_DIR="${NVIM_CONFIG_DIR:-$HOME/.config/nvim}"
-NVIM_CONFIG_REPO="${NVIM_CONFIG_REPO:-https://github.com/antonkesy/nvim-config.git}"
-NVIM_CONFIG_REF="${NVIM_CONFIG_REF:-}"
-UPDATE_EXISTING_CONFIG="${UPDATE_EXISTING_CONFIG:-1}"
+NVIM_VERSION="v0.11.6"
+NVIM_CONFIG_DIR="$HOME/.config/nvim"
+NVIM_CONFIG_REPO="https://github.com/antonkesy/nvim-config.git"
 
 if [[ "${EUID}" -eq 0 ]]; then
   SUDO=""
@@ -27,21 +24,11 @@ bootstrap_nvim_config() {
   mkdir -p "$(dirname "${NVIM_CONFIG_DIR}")"
 
   if [[ -d "${NVIM_CONFIG_DIR}" ]]; then
-    if [[ "${UPDATE_EXISTING_CONFIG}" != "1" ]]; then
-      log "Config directory already exists, skipping update: ${NVIM_CONFIG_DIR}"
-      return
-    fi
-
     if [[ -d "${NVIM_CONFIG_DIR}/.git" ]]; then
       log "Updating existing config clone in ${NVIM_CONFIG_DIR}"
       git -C "${NVIM_CONFIG_DIR}" fetch --all --tags --prune
-      if [[ -n "${NVIM_CONFIG_REF}" ]]; then
-        git -C "${NVIM_CONFIG_DIR}" checkout "${NVIM_CONFIG_REF}"
-        git -C "${NVIM_CONFIG_DIR}" pull --ff-only origin "${NVIM_CONFIG_REF}"
-      else
-        CURRENT_BRANCH="$(git -C "${NVIM_CONFIG_DIR}" symbolic-ref --short HEAD)"
-        git -C "${NVIM_CONFIG_DIR}" pull --ff-only origin "${CURRENT_BRANCH}"
-      fi
+      CURRENT_BRANCH="$(git -C "${NVIM_CONFIG_DIR}" symbolic-ref --short HEAD)"
+      git -C "${NVIM_CONFIG_DIR}" pull --ff-only origin "${CURRENT_BRANCH}"
       return
     fi
 
@@ -51,11 +38,7 @@ bootstrap_nvim_config() {
   fi
 
   log "Cloning Neovim config into ${NVIM_CONFIG_DIR}"
-  if [[ -n "${NVIM_CONFIG_REF}" ]]; then
-    git clone --depth 1 --branch "${NVIM_CONFIG_REF}" "${NVIM_CONFIG_REPO}" "${NVIM_CONFIG_DIR}"
-  else
-    git clone --depth 1 "${NVIM_CONFIG_REPO}" "${NVIM_CONFIG_DIR}"
-  fi
+  git clone --depth 1 "${NVIM_CONFIG_REPO}" "${NVIM_CONFIG_DIR}"
 }
 
 apt_install() {
@@ -177,20 +160,18 @@ if [[ "${NEED_NVIM_BUILD}" -eq 1 ]]; then
   rm -rf "${BUILD_DIR}"
 fi
 
-if [[ "${INSTALL_PLUGINS}" == "1" ]]; then
-  if [[ ! -d "${NVIM_CONFIG_DIR}" ]]; then
-    echo "Error: NVIM_CONFIG_DIR not found: ${NVIM_CONFIG_DIR}" >&2
-    exit 1
-  fi
-
-  log "Installing plugins with Lazy"
-  nvim --headless -u "${NVIM_CONFIG_DIR}/init.lua" -c "Lazy sync" -c "qa"
-
-  log "Installing all available treesitter parsers"
-  nvim --headless -u "${NVIM_CONFIG_DIR}/init.lua" \
-    -c 'lua for _,lang in ipairs(require("nvim-treesitter.parsers").available_parsers()) do vim.cmd("TSInstallSync " .. lang) end' \
-    -c 'qa'
+if [[ ! -d "${NVIM_CONFIG_DIR}" ]]; then
+  echo "Error: NVIM_CONFIG_DIR not found: ${NVIM_CONFIG_DIR}" >&2
+  exit 1
 fi
+
+log "Installing plugins with Lazy"
+nvim --headless -u "${NVIM_CONFIG_DIR}/init.lua" -c "Lazy sync" -c "qa"
+
+log "Installing all available treesitter parsers"
+nvim --headless -u "${NVIM_CONFIG_DIR}/init.lua" \
+  -c 'lua for _,lang in ipairs(require("nvim-treesitter.parsers").available_parsers()) do vim.cmd("TSInstallSync " .. lang) end' \
+  -c 'qa'
 
 log "Cleaning apt cache"
 ${SUDO} apt-get clean
