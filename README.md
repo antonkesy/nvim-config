@@ -50,6 +50,8 @@ akvim <file-to-edit>
 akvim .
 ```
 
-## Usage
+## Usage & Tips
 
-- [Keymaps](https://www.lazyvim.org/keymaps)
+- [Official LazyVim Keymaps](https://www.lazyvim.org/keymaps)
+- [LazyVim Tips](https://www.lazyvim.org/configuration/tips)
+- [Explorer](https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md)
