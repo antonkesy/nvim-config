@@ -1,6 +1,14 @@
 return {
   "snacks.nvim",
   opts = {
+    terminal = {
+      win = {
+        position = "float",
+        width = 0.99,
+        height = 0.99,
+        border = "rounded",
+      },
+    },
     dashboard = {
       preset = {
         header = "¯\\_(ツ)_/¯",
