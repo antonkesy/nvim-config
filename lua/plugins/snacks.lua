@@ -4,9 +4,12 @@ return {
     terminal = {
       win = {
         position = "float",
-        width = 0.99,
-        height = 0.99,
-        border = "rounded",
+        width = 0, -- 0 = full width
+        height = 0, -- 0 = full height
+        row = 0,
+        col = 0,
+        border = "none",
+        backdrop = false,
       },
     },
     dashboard = {
