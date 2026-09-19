@@ -4,8 +4,12 @@ return {
     terminal = {
       win = {
         position = "float",
-        width = 0, -- 0 = full width
-        height = 0, -- 0 = full height
+        width = 0, -- full width
+        -- full height minus the statusline and cmdline, so the nvim
+        -- statusline stays visible under the float
+        height = function()
+          return math.max(vim.o.lines - vim.o.cmdheight - 1, 1)
+        end,
         row = 0,
         col = 0,
         border = "none",
