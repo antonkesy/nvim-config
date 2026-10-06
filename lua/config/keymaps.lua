@@ -21,10 +21,13 @@ end
 -- qucik 'no highlight'
 vim.keymap.set("n", "<leader>h", "<cmd>noh<CR>", { desc = "Clear search highlight" })
 
--- Claude Code terminal toggle
-if vim.fn.executable("claude") == 1 then
+-- Claude Code terminal toggle (prefer gnai-claude wrapper for auth, e.g. on WSL)
+local claude_cmd = vim.fn.executable("gnai-claude") == 1 and "gnai-claude"
+  or vim.fn.executable("claude") == 1 and "claude"
+  or nil
+if claude_cmd then
   map({ "n", "t" }, "<C-Bslash>", function()
     -- luacheck: globals Snacks
-    Snacks.terminal.toggle("claude", { cwd = vim.fn.getcwd() })
+    Snacks.terminal.toggle(claude_cmd, { cwd = vim.fn.getcwd() })
   end, { desc = "Toggle Claude terminal" })
 end
