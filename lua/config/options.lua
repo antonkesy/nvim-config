@@ -10,3 +10,6 @@ vim.g.autoformat = false
 
 -- Don't jump to repo root if opened in subdir
 vim.g.root_spec = { "cwd" }
+
+-- Insert real tabs, not spaces (LazyVim defaults to expandtab)
+vim.opt.expandtab = false
